@@ -6,6 +6,7 @@ const mongoose= require('mongoose');
 const app= express();
 app.use(bodyParser.json());
 
+
 mongoose.connect( 'mongodb://localhost:@127.0.0.1' , 
 {useNewUrlParser: true})
 .then(()=> console.log("MongoDb is connected"))
