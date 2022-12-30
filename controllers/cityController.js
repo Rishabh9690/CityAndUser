@@ -12,7 +12,7 @@ const isValid= function(value)
 }
 const isAlphabetic= function(value)
 {
-    return /^[a-zA-Z]*$/.test(value);
+    return /[a-zA-Z]/.test(value);
 }
 const isNumericOrSpecialChar= function(value)
 {
@@ -32,13 +32,14 @@ const createCity= async function (req, res)
 {
     try
     {
-        const cityName= req.body(data);
+        const cityName= req.body;//(data);
         //Validations
         if(!isValid(cityName)) return res.status(400).send({status: false, message: "Please provide the name of the city"});
         if(!isAlphabetic(cityName)) return res.status(400).send({status: false, message: "Please enter alphabets for the name of the city"});
         if(isNumericOrSpecialChar(cityName)) return res.status(400).send({status: false, message: "Do not enter the number of any special char in the name of City"});
-        const isCityUnique= await CityModel.findOne({cityName: cityName, isDeleted: false});
-        if(isCityUnique) return res.status(400).send({status: false, message: "This city is already exist"});
+        // const isCityUnique= await CityModel.findOne({cityName: cityName});
+        // console.log(typeOf(isCityUnique));
+        // if(isCityUnique.length>0) return res.status(400).send({status: false, message: "This city is already exist"});
 
         const cityCreate= await CityModel.create(cityName);
         res.status(201).send({status: true, message: cityCreate});

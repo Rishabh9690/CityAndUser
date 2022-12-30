@@ -8,10 +8,10 @@ const { response } = require('express');
 router.post('/creatingCity', cityController.createCity);
 router.get('getAllData', cityController.getCities);
 
-axios.get('https://api.binance.com/api/v1/time').then(response=>{
-    console.log(response.data.url);
-    console.log(response.data.explanation);
-}).catch(err=>{console.log(err)});
+// axios.get('https://api.binance.com/api/v1/time').then(response=>{
+//     console.log(response.data.url);
+//     console.log(response.data.explanation);
+// }).catch(err=>{console.log(err)});
 
 router.post('createUser', cityController.createUser);
 router.get('getAllUserData', cityController.getUser);

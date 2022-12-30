@@ -7,7 +7,7 @@ const app= express();
 app.use(bodyParser.json());
 
 
-mongoose.connect( 'mongodb://localhost:@127.0.0.1' , 
+mongoose.connect( 'mongodb://localhost:27017' , 
 {useNewUrlParser: true})
 .then(()=> console.log("MongoDb is connected"))
 .catch((err)=> console.log(err));
